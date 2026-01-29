@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Three.js Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r164/three.min.js"></script>
+</head>
+<body>
+    <script>
+        console.log('Testing Three.js...');
+        if (typeof THREE !== 'undefined') {
+            console.log('Three.js loaded successfully!');
+            document.body.innerHTML = '<h1 style="color:green;">Three.js Works!</h1>';
+        } else {
+            console.log('Three.js failed to load');
+            document.body.innerHTML = '<h1 style="color:red;">Three.js Failed</h1>';
+        }
+    </script>
+</body>
+</html>
