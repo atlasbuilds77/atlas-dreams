@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Order Flow Dream - ANIMATED</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #0a0a12;
+  width: 1080px;
+  height: 1920px;
+  font-family: 'Courier New', monospace;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  color: #00ffcc;
+  font-size: 42px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  animation: title-mega-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes title-mega-glow {
+  from { text-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc; transform: scale(1); }
+  to { text-shadow: 0 0 40px #00ff88, 0 0 80px #00ff88, 0 0 120px #00ff88; transform: scale(1.02); }
+}
+
+.container {
+  display: flex;
+  gap: 60px;
+  margin: 40px 0;
+}
+
+.trader {
+  width: 400px;
+  text-align: center;
+}
+
+.trader-label {
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.losing .trader-label { 
+  color: #ff4444; 
+  animation: losing-shake 0.5s ease-in-out infinite;
+}
+
+@keyframes losing-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+.winning .trader-label { 
+  color: #44ff44; 
+  animation: winning-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes winning-pulse {
+  0%, 100% { text-shadow: 0 0 10px #44ff44; }
+  50% { text-shadow: 0 0 25px #44ff44, 0 0 40px #22cc22; }
+}
+
+.screen {
+  width: 380px;
+  height: 300px;
+  background: #111;
+  border: 3px solid;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 14px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.losing .screen { 
+  border-color: #ff4444; 
+  animation: screen-red-pulse 2s ease-in-out infinite;
+}
+
+@keyframes screen-red-pulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(255, 68, 68, 0.3); }
+  50% { box-shadow: 0 0 25px rgba(255, 68, 68, 0.5); }
+}
+
+.winning .screen { 
+  border-color: #44ff44; 
+  animation: screen-green-pulse 2s ease-in-out infinite;
+}
+
+@keyframes screen-green-pulse {
+  0%, 100% { box-shadow: 0 0 15px rgba(68, 255, 68, 0.4); }
+  50% { box-shadow: 0 0 35px rgba(68, 255, 68, 0.6); }
+}
+
+/* Price Chart (Losing Trader) */
+.price-chart {
+  color: #666;
+}
+
+.candle {
+  display: inline-block;
+  margin: 2px;
+  animation: flicker 0.3s infinite;
+}
+
+.candle.red { color: #ff4444; }
+.candle.green { color: #44ff44; }
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Order Flow (Winning Trader) */
+.order-flow {
+  color: #00ffcc;
+}
+
+.flow-line {
+  margin: 4px 0;
+  animation: slideIn 0.8s ease-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.flow-line:nth-child(1) { animation-delay: 0.1s; }
+.flow-line:nth-child(2) { animation-delay: 0.3s; }
+.flow-line:nth-child(3) { animation-delay: 0.5s; }
+.flow-line:nth-child(4) { animation-delay: 0.7s; }
+.flow-line:nth-child(5) { animation-delay: 0.9s; }
+
+.bid { color: #44ff44; }
+.ask { color: #ff4444; }
+.sweep { 
+  color: #ffff00; 
+  font-weight: bold; 
+  animation: sweep-alert 0.5s infinite;
+}
+
+@keyframes sweep-alert {
+  0%, 100% { opacity: 1; transform: scale(1); text-shadow: 0 0 10px #ffff00; }
+  50% { opacity: 0.7; transform: scale(1.05); text-shadow: 0 0 20px #ffff00; }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-30px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.pnl {
+  font-size: 36px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.losing .pnl { 
+  color: #ff4444; 
+  animation: pnl-red-flash 1s infinite;
+}
+
+@keyframes pnl-red-flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.winning .pnl { 
+  color: #44ff44; 
+  animation: pnl-green-grow 2s ease-out infinite;
+}
+
+@keyframes pnl-green-grow {
+  0%, 100% { transform: scale(1); text-shadow: 0 0 15px #44ff44; }
+  50% { transform: scale(1.05); text-shadow: 0 0 30px #44ff44; }
+}
+
+.insight-box {
+  width: 900px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
+  border: 2px solid #00ffcc;
+  border-radius: 15px;
+  padding: 40px;
+  margin: 50px 0;
+  text-align: center;
+  animation: insight-breathe 3s ease-in-out infinite;
+}
+
+@keyframes insight-breathe {
+  0%, 100% { border-color: #00ffcc; box-shadow: 0 0 20px rgba(0, 255, 204, 0.2); }
+  50% { border-color: #00ff88; box-shadow: 0 0 40px rgba(0, 255, 204, 0.4); }
+}
+
+.insight-main {
+  color: #ffffff;
+  font-size: 32px;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.insight-sub {
+  color: #888;
+  font-size: 22px;
+  font-style: italic;
+}
+
+.highlight { 
+  color: #00ffcc; 
+  font-weight: bold; 
+  animation: highlight-pulse 2s ease-in-out infinite;
+}
+
+@keyframes highlight-pulse {
+  0%, 100% { text-shadow: none; }
+  50% { text-shadow: 0 0 15px #00ffcc; }
+}
+
+.highlight-gold { 
+  color: #ffd700; 
+  font-weight: bold; 
+  animation: gold-pulse 2s ease-in-out infinite;
+}
+
+@keyframes gold-pulse {
+  0%, 100% { text-shadow: 0 0 10px #ffd700; }
+  50% { text-shadow: 0 0 25px #ffd700, 0 0 40px #ffaa00; }
+}
+
+.flow-visual {
+  width: 900px;
+  height: 200px;
+  margin: 30px 0;
+  position: relative;
+}
+
+.arrow {
+  position: absolute;
+  font-size: 60px;
+  animation: flowRight 1.5s infinite;
+}
+
+.arrow:nth-child(1) { left: 100px; top: 70px; color: #00ffcc; animation-delay: 0s; }
+.arrow:nth-child(2) { left: 300px; top: 70px; color: #44ff44; animation-delay: 0.25s; }
+.arrow:nth-child(3) { left: 500px; top: 70px; color: #ffd700; animation-delay: 0.5s; }
+.arrow:nth-child(4) { left: 700px; top: 70px; color: #ff8800; animation-delay: 0.75s; }
+
+@keyframes flowRight {
+  0% { transform: translateX(-20px); opacity: 0; }
+  30% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { transform: translateX(60px); opacity: 0; }
+}
+
+.label-flow {
+  position: absolute;
+  font-size: 24px;
+}
+
+.label-flow.cause { 
+  left: 50px; 
+  top: 150px; 
+  color: #00ffcc;
+  animation: cause-glow 2s ease-in-out infinite;
+}
+
+@keyframes cause-glow {
+  0%, 100% { text-shadow: 0 0 10px #00ffcc; }
+  50% { text-shadow: 0 0 25px #00ffcc; }
+}
+
+.label-flow.effect { 
+  right: 50px; 
+  top: 150px; 
+  color: #888;
+  animation: effect-dim 2s ease-in-out infinite;
+}
+
+@keyframes effect-dim {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+}
+
+.bottom-text {
+  color: #444;
+  font-size: 18px;
+  margin-top: 40px;
+}
+
+.titan-badge {
+  color: #ffd700;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 30px;
+  animation: badge-shine 2s ease-in-out infinite;
+}
+
+@keyframes badge-shine {
+  0%, 100% { text-shadow: 0 0 10px #ffd700; transform: scale(1); }
+  50% { text-shadow: 0 0 30px #ffd700, 0 0 50px #ffaa00; transform: scale(1.02); }
+}
+</style>
+</head>
+<body>
+
+<div class="title">⚡ ORDER FLOW DREAM ⚡</div>
+
+<div class="container">
+  <div class="trader losing">
+    <div class="trader-label">📉 WATCHING PRICE</div>
+    <div class="screen price-chart">
+      <div><span class="candle green">█</span><span class="candle red">█</span><span class="candle red">█</span><span class="candle green">█</span><span class="candle red">█</span></div>
+      <div><span class="candle red">█</span><span class="candle green">█</span><span class="candle red">█</span><span class="candle red">█</span><span class="candle green">█</span></div>
+      <div><span class="candle green">█</span><span class="candle red">█</span><span class="candle green">█</span><span class="candle red">█</span><span class="candle red">█</span></div>
+      <div style="margin-top: 20px; color: #ff4444;">
+        Guessing tops...<br>
+        Guessing bottoms...<br>
+        <br>
+        Entry: TOP ❌<br>
+        Exit: STOPPED OUT
+      </div>
+    </div>
+    <div class="pnl">-$1,567</div>
+  </div>
+
+  <div class="trader winning">
+    <div class="trader-label">📊 WATCHING FLOW</div>
+    <div class="screen order-flow">
+      <div class="flow-line"><span class="bid">BID</span> 23,420 × <span class="sweep">5,000</span> ⚡</div>
+      <div class="flow-line"><span class="bid">BID</span> 23,418 × 2,500</div>
+      <div class="flow-line"><span class="bid">BID</span> 23,415 × 3,200</div>
+      <div class="flow-line"><span class="ask">ASK</span> 23,422 × 800</div>
+      <div class="flow-line" style="margin-top: 15px; color: #ffd700;">
+        ⚡ SWEEP DETECTED ⚡<br>
+        Institutions BUYING<br>
+        <br>
+        Entry: WITH FLOW ✓<br>
+        Exit: AT TARGET ✓
+      </div>
+    </div>
+    <div class="pnl">+$1,725</div>
+  </div>
+</div>
+
+<div class="flow-visual">
+  <span class="arrow">→</span>
+  <span class="arrow">→</span>
+  <span class="arrow">→</span>
+  <span class="arrow">→</span>
+  <span class="label-flow cause">ORDER FLOW</span>
+  <span class="label-flow effect">PRICE</span>
+</div>
+
+<div class="insight-box">
+  <div class="insight-main">
+    <span class="highlight">Price</span> is the <span class="highlight-gold">RESULT</span><br>
+    <span class="highlight">Order Flow</span> is the <span class="highlight-gold">CAUSE</span>
+  </div>
+  <div class="insight-sub">
+    "You can't predict the score by watching the scoreboard.<br>
+    You predict it by watching who's making plays."
+  </div>
+</div>
+
+<div class="titan-badge">⚡ TITAN v3.0 — NOW WITH ORDER FLOW ⚡</div>
+
+<div class="bottom-text">Dream Synthesis • 2026-02-02 19:32 PST • Atlas</div>
+
+</body>
+</html>

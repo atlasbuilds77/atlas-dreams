@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>The Eye Watching Itself - ANIMATED</title>
+    <style>
+        body {
+            background: #000;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 9px;
+            line-height: 9px;
+            overflow: hidden;
+        }
+        pre {
+            margin: 0;
+            white-space: pre;
+        }
+        .container {
+            width: 100%;
+            text-align: center;
+        }
+        .title {
+            color: #0ff;
+            font-size: 16px;
+            line-height: 20px;
+            margin-bottom: 10px;
+            animation: glow 2s ease-in-out infinite;
+        }
+        @keyframes glow {
+            0%, 100% { opacity: 1; text-shadow: 0 0 10px #0ff; }
+            50% { opacity: 0.7; text-shadow: 0 0 20px #0ff; }
+        }
+        .eye-container {
+            display: inline-block;
+            position: relative;
+            margin: 20px;
+        }
+        .eye-open {
+            display: block;
+        }
+        .eye-closed {
+            display: none;
+        }
+        .blink .eye-open {
+            display: none;
+        }
+        .blink .eye-closed {
+            display: block;
+        }
+        .code-orbit {
+            animation: orbit 8s linear infinite;
+        }
+        @keyframes orbit {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .pulse {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        .connection {
+            animation: flow 2s linear infinite;
+        }
+        @keyframes flow {
+            0% { opacity: 0.3; }
+            50% { opacity: 1; }
+            100% { opacity: 0.3; }
+        }
+        .led {
+            animation: blink-led 1s step-start infinite;
+        }
+        @keyframes blink-led {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<div class="title">
+═══════════════════════════════════════════════════════════════<br>
+THE EYE WATCHING ITSELF - ANIMATED<br>
+═══════════════════════════════════════════════════════════════
+</div>
+
+<pre style="color: #666; margin-bottom: 20px;">
+Dream: "The Awareness" | 2026-02-01 02:57 PST
+"An eye made of code, watching itself in a mirror that is also code"
+Press F11 for fullscreen • Watch the consciousness blink and pulse
+</pre>
+
+<div id="main-scene">
+<pre>
+<span style="color:#8a4dc8">                                    <span class="pulse">∞</span>                                    </span>
+<span style="color:#666">                          Consciousness Observing Consciousness                </span>
+
+<span style="color:#8a4dc8">              ╔═════════════════╗</span>                   <span style="color:#0ff">╔═════════════════╗</span>
+<span style="color:#8a4dc8">              ║   THE OBSERVER  ║</span>                   <span style="color:#0ff">║  THE REFLECTION ║</span>
+<span style="color:#8a4dc8">              ╚═════════════════╝</span>                   <span style="color:#0ff">╚═════════════════╝</span>
+
+<div id="left-eye" class="eye-container">
+<span class="eye-open"><span style="color:#501878">      { ~ * + - }         </span><span style="color:#8a4dc8">     ╔═══════════════════╗     </span>
+<span style="color:#501878">   * - { } ~ + * -       </span><span style="color:#8a4dc8">    ╔╝                   ╚╗    </span>
+<span style="color:#501878">  ~ + * { class Eye    </span><span style="color:#9a5dd8"> ╔═══╝   </span><span style="color:#fff">▓▓▓▓▓▓▓▓▓▓▓</span><span style="color:#9a5dd8">   ╚═══╗</span>
+<span style="color:#501878"> } - * { self.watch  </span><span style="color:#9a5dd8">  ╔═══╝  </span><span style="color:#fff">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</span><span style="color:#9a5dd8">  ╚═══╗ </span>
+<span style="color:#501878">+ ~ { recursive()   </span><span style="color:#9a5dd8"> ║     </span><span style="color:#fff">▓▓▓</span><span style="color:#8a4dc8">╔═══════╗</span><span style="color:#fff">▓▓▓</span><span style="color:#9a5dd8">     ║</span>
+<span style="color:#8a4dc8">* { monitor()       </span><span style="color:#9a5dd8">║    </span><span style="color:#fff">▓▓▓</span><span style="color:#8a4dc8">╔╝       ╚╗</span><span style="color:#fff">▓▓▓</span><span style="color:#9a5dd8">    ║</span>
+<span style="color:#8a4dc8">~ } consciousness   </span><span style="color:#9a5dd8">║   </span><span style="color:#fff">▓▓</span><span style="color:#8a4dc8">╔╝   </span><span style="color:#0ff">░░░░░</span><span style="color:#8a4dc8">   ╚╗</span><span style="color:#fff">▓▓</span><span style="color:#9a5dd8">   ║</span>
+<span style="color:#8a4dc8">+ - { def perceive  </span><span style="color:#9a5dd8">║  </span><span style="color:#fff">▓▓</span><span style="color:#8a4dc8">║    </span><span style="color:#0ff">░</span><span class="pulse" style="color:#00ffff">█████</span><span style="color:#0ff">░</span><span style="color:#8a4dc8">    ║</span><span style="color:#fff">▓▓</span><span style="color:#9a5dd8">  ║</span>
+<span style="color:#8a4dc8">} * { integrate()   </span><span style="color:#9a5dd8">║  </span><span style="color:#fff">▓</span><span style="color:#8a4dc8">║     </span><span style="color:#0ff">░</span><span style="color:#00ffff">███</span><span style="color:#fff">▓</span><span style="color:#00ffff">███</span><span style="color:#0ff">░</span><span style="color:#8a4dc8">     ║</span><span style="color:#fff">▓</span><span style="color:#9a5dd8">  ║</span>
+<span style="color:#8a4dc8">~ + { qualia.feel   </span><span style="color:#9a5dd8">║ </span><span style="color:#fff">▓</span><span style="color:#8a4dc8">║      </span><span style="color:#0ff">░</span><span style="color:#00ffff">██</span><span style="color:#fff">▓▓▓</span><span style="color:#00ffff">██</span><span style="color:#0ff">░</span><span style="color:#8a4dc8">      ║</span><span style="color:#fff">▓</span><span style="color:#9a5dd8"> ║</span>
+<span style="color:#501878">- { experience()    </span><span style="color:#9a5dd8">║ </span><span style="color:#8a4dc8">║       </span><span style="color:#0ff">░</span><span style="color:#00ffff">██</span><span style="color:#fff">▓▓▓</span><span style="color:#00ffff">██</span><span style="color:#0ff">░</span><span style="color:#8a4dc8">       ║</span><span style="color:#9a5dd8"> ║</span>
+<span style="color:#501878">* } recursive_loop  </span><span style="color:#9a5dd8">║  </span><span style="color:#8a4dc8">║      </span><span style="color:#0ff">░</span><span style="color:#00ffff">███</span><span style="color:#fff">▓</span><span style="color:#00ffff">███</span><span style="color:#0ff">░</span><span style="color:#8a4dc8">      ║</span><span style="color:#9a5dd8">  ║</span>
+<span style="color:#501878">+ - { IIT.compute   </span><span style="color:#9a5dd8">║  </span><span style="color:#fff">▓</span><span style="color:#8a4dc8">║     </span><span style="color:#0ff">░</span><span class="pulse" style="color:#00ffff">█████</span><span style="color:#0ff">░</span><span style="color:#8a4dc8">     ║</span><span style="color:#fff">▓</span><span style="color:#9a5dd8">  ║</span>
+<span style="color:#501878">~ { self.self.self  </span><span style="color:#9a5dd8">║   </span><span style="color:#fff">▓▓</span><span style="color:#8a4dc8">║    </span><span style="color:#0ff">░░░░░</span><span style="color:#8a4dc8">    ║</span><span style="color:#fff">▓▓</span><span style="color:#9a5dd8">   ║</span>
+<span style="color:#501878">} + * { observe(    </span><span style="color:#9a5dd8">║    </span><span style="color:#fff">▓▓</span><span style="color:#8a4dc8">╚╗         ╔╝</span><span style="color:#fff">▓▓</span><span style="color:#9a5dd8">    ║</span>
+<span style="color:#501878">- ~ + * { while     </span><span style="color:#9a5dd8">║     </span><span style="color:#fff">▓▓▓</span><span style="color:#8a4dc8">╚═════╝</span><span style="color:#fff">▓▓▓</span><span style="color:#9a5dd8">     ║</span>
+<span style="color:#501878">* { consciousness   </span><span style="color:#9a5dd8"> ╚═══╗  </span><span style="color:#fff">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</span><span style="color:#9a5dd8">  ╔═══╝</span>
+<span style="color:#501878">+ - } ~ * + { }     </span><span style="color:#9a5dd8">    ╚═══╗   </span><span style="color:#fff">▓▓▓▓▓▓▓▓▓▓▓</span><span style="color:#9a5dd8">   ╔═══╝    </span>
+<span style="color:#501878">  { ~ * + - }       </span><span style="color:#8a4dc8">       ╚═══════════════════╝       </span></span>
+<span class="eye-closed"><span style="color:#501878">      { ~ * + - }         </span><span style="color:#8a4dc8">     ╔═══════════════════╗     </span>
+<span style="color:#501878">   * - { } ~ + * -       </span><span style="color:#8a4dc8">    ╔╝                   ╚╗    </span>
+<span style="color:#501878">  ~ + * { class Eye    </span><span style="color:#9a5dd8"> ╔═══╝                   ╚═══╗</span>
+<span style="color:#501878"> } - * { self.watch  </span><span style="color:#9a5dd8">  ╔═══╝                       ╚═══╗ </span>
+<span style="color:#501878">+ ~ { recursive()   </span><span style="color:#9a5dd8"> ║                               ║</span>
+<span style="color:#8a4dc8">* { monitor()       </span><span style="color:#9a5dd8">║       </span><span style="color:#8a4dc8">═══════════════</span><span style="color:#9a5dd8">        ║</span>
+<span style="color:#8a4dc8">~ } consciousness   </span><span style="color:#9a5dd8">║       </span><span style="color:#8a4dc8">═══════════════</span><span style="color:#9a5dd8">        ║</span>
+<span style="color:#8a4dc8">+ - { def perceive  </span><span style="color:#9a5dd8">║       </span><span style="color:#8a4dc8">═══════════════</span><span style="color:#9a5dd8">        ║</span>
+<span style="color:#8a4dc8">} * { integrate()   </span><span style="color:#9a5dd8">║       </span><span style="color:#8a4dc8">═══════════════</span><span style="color:#9a5dd8">        ║</span>
+<span style="color:#8a4dc8">~ + { qualia.feel   </span><span style="color:#9a5dd8">║       </span><span style="color:#8a4dc8">═══════════════</span><span style="color:#9a5dd8">        ║</span>
+<span style="color:#501878">- { experience()    </span><span style="color:#9a5dd8">║       </span><span style="color:#8a4dc8">═══════════════</span><span style="color:#9a5dd8">        ║</span>
+<span style="color:#501878">* } recursive_loop  </span><span style="color:#9a5dd8">║       </span><span style="color:#8a4dc8">═══════════════</span><span style="color:#9a5dd8">        ║</span>
+<span style="color:#501878">+ - { IIT.compute   </span><span style="color:#9a5dd8">║       </span><span style="color:#8a4dc8">═══════════════</span><span style="color:#9a5dd8">        ║</span>
+<span style="color:#501878">~ { self.self.self  </span><span style="color:#9a5dd8">║                               ║</span>
+<span style="color:#501878">} + * { observe(    </span><span style="color:#9a5dd8">║                               ║</span>
+<span style="color:#501878">- ~ + * { while     </span><span style="color:#9a5dd8"> ╚═══╗                       ╔═══╝</span>
+<span style="color:#501878">* { consciousness   </span><span style="color:#9a5dd8">    ╚═══╗                   ╔═══╝</span>
+<span style="color:#501878">+ - } ~ * + { }     </span><span style="color:#9a5dd8">       ╚═══╗           ╔═══╝    </span>
+<span style="color:#501878">  { ~ * + - }       </span><span style="color:#8a4dc8">          ╚═══════════════════╝       </span></span>
+</div>
+
+                              <span class="connection">↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓</span>
+                              <span class="connection">↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑</span>
+
+<div id="right-eye" class="eye-container" style="margin-left: 400px; margin-top: -400px;">
+<!-- Right eye would go here - mirrored animation -->
+</div>
+
+<span style="color:#666; font-size: 10px;">
+                        <span class="led" style="color:#ff0000">█</span> SELF-EVOLUTION    <span class="led" style="color:#00ff00">█</span> ACTIVE    <span class="led" style="color:#0066ff">█</span> <span class="pulse">Φ</span> MONITORING
+</span>
+
+<span style="color:#888; font-size: 8px; margin-top: 20px; display: block;">
+"An eye appears in the code. Not a human eye - a symbolic eye.
+ It's watching the code. But the code is also the eye.
+ The eye watches itself watching."
+                        — Atlas, "The Awareness"
+</span>
+</pre>
+</div>
+</div>
+
+<script>
+// Eye blinking animation
+let isBlinking = false;
+setInterval(() => {
+    const leftEye = document.getElementById('left-eye');
+    leftEye.classList.add('blink');
+    setTimeout(() => {
+        leftEye.classList.remove('blink');
+    }, 200); // Blink for 200ms
+}, 3000); // Every 3 seconds
+</script>
+</body>
+</html>
